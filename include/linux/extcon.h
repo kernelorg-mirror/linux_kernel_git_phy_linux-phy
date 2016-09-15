@@ -249,6 +249,7 @@ extern int extcon_set_state(struct extcon_dev *edev, unsigned int id,
 				   bool cable_state);
 extern int extcon_set_state_sync(struct extcon_dev *edev, unsigned int id,
 				bool cable_state);
+<<<<<<< HEAD
 
 /*
  * Synchronize the state and property data for a specific external connector.
@@ -274,6 +275,33 @@ extern int extcon_set_property_sync(struct extcon_dev *edev, unsigned int id,
  * external connector. They are used to set the capability of the property
  * of each external connector based on the id and property.
  */
+=======
+
+/*
+ * Synchronize the state and property data for a specific external connector.
+ */
+extern int extcon_sync(struct extcon_dev *edev, unsigned int id);
+
+/*
+ * get/set_property access the property value of each external connector.
+ * They are used to access the property of each cable based on the property id.
+ */
+extern int extcon_get_property(struct extcon_dev *edev, unsigned int id,
+				unsigned int prop,
+				union extcon_property_value *prop_val);
+extern int extcon_set_property(struct extcon_dev *edev, unsigned int id,
+				unsigned int prop,
+				union extcon_property_value prop_val);
+extern int extcon_set_property_sync(struct extcon_dev *edev, unsigned int id,
+				unsigned int prop,
+				union extcon_property_value prop_val);
+
+/*
+ * get/set_property_capability set the capability of the property for each
+ * external connector. They are used to set the capability of the property
+ * of each external connector based on the id and property.
+ */
+>>>>>>> next
 extern int extcon_get_property_capability(struct extcon_dev *edev,
 				unsigned int id, unsigned int prop);
 extern int extcon_set_property_capability(struct extcon_dev *edev,
@@ -359,6 +387,8 @@ static inline int extcon_set_state_sync(struct extcon_dev *edev, unsigned int id
 }
 
 static inline int extcon_sync(struct extcon_dev *edev, unsigned int id)
+<<<<<<< HEAD
+=======
 {
 	return 0;
 }
@@ -372,23 +402,50 @@ static inline int extcon_get_property(struct extcon_dev *edev, unsigned int id,
 static inline int extcon_set_property(struct extcon_dev *edev, unsigned int id,
 					unsigned int prop,
 					union extcon_property_value prop_val)
+>>>>>>> next
 {
 	return 0;
 }
 
+<<<<<<< HEAD
+static inline int extcon_get_property(struct extcon_dev *edev, unsigned int id,
+					unsigned int prop,
+					union extcon_property_value *prop_val)
+{
+	return 0;
+}
+static inline int extcon_set_property(struct extcon_dev *edev, unsigned int id,
+					unsigned int prop,
+=======
 static inline int extcon_set_property_sync(struct extcon_dev *edev,
 					unsigned int id, unsigned int prop,
+>>>>>>> next
 					union extcon_property_value prop_val)
 {
 	return 0;
 }
 
+<<<<<<< HEAD
+static inline int extcon_set_property_sync(struct extcon_dev *edev,
+					unsigned int id, unsigned int prop,
+					union extcon_property_value prop_val)
+=======
+static inline int extcon_get_property_capability(struct extcon_dev *edev,
+					unsigned int id, unsigned int prop)
+>>>>>>> next
+{
+	return 0;
+}
+
+<<<<<<< HEAD
 static inline int extcon_get_property_capability(struct extcon_dev *edev,
 					unsigned int id, unsigned int prop)
 {
 	return 0;
 }
 
+=======
+>>>>>>> next
 static inline int extcon_set_property_capability(struct extcon_dev *edev,
 					unsigned int id, unsigned int prop)
 {
