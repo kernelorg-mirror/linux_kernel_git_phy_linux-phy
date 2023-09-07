@@ -44,6 +44,15 @@ config PHY_FSL_IMX8MQ_DP_PHY
 	  Enable this to support the Cadence HDPTX DP PHY driver
 	  on i.MX8MQ SOC.
 
+config PHY_FSL_IMX8MQ_HDMI_PHY
+	tristate "Freescale i.MX8MQ HDMI PHY support"
+	depends on OF && HAS_IOMEM
+	depends on COMMON_CLK
+	select GENERIC_PHY
+	help
+	  Enable this to support the Cadence HDPTX HDMI PHY driver
+	  on i.MX8MQ SOC.
+
 endif
 
 config PHY_FSL_LYNX_28G
